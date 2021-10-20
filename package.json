@@ -1,0 +1,25 @@
+{
+  "name": "mongoose-multitenant",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henriquesml/mongoose-multitenant.git"
+  },
+  "keywords": [],
+  "author": "Henrique Schmeller",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/henriquesml/mongoose-multitenant/issues"
+  },
+  "homepage": "https://github.com/henriquesml/mongoose-multitenant#readme",
+  "peerDependencies": {
+    "mongoose": "^6.0.11"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.1",
+    "mongoose": "^6.0.11",
+    "typescript": "^4.4.4"
+  }
+}
