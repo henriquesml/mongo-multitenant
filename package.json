@@ -3,6 +3,12 @@
   "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
+  "scripts": {
+    "test": "NODE_ENV=test jest",
+    "test:watch": "yarn test --watch ",
+    "test:staged": "yarn test --findRelatedTests --silent",
+    "test:ci": "yarn test --coverage --silent"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/henriquesml/mongoose-multitenant.git"
@@ -15,11 +21,17 @@
   },
   "homepage": "https://github.com/henriquesml/mongoose-multitenant#readme",
   "peerDependencies": {
-    "mongoose": "^6.0.11"
+    "mongoose": "^6.0.12"
   },
   "devDependencies": {
+    "@shelf/jest-mongodb": "^2.1.0",
+    "@types/faker": "^5.5.9",
+    "@types/jest": "^27.0.2",
     "@types/node": "^16.11.1",
-    "mongoose": "^6.0.11",
+    "faker": "^5.5.3",
+    "jest": "^27.3.1",
+    "mongoose": "^6.0.12",
+    "ts-jest": "^27.0.7",
     "typescript": "^4.4.4"
   }
 }
