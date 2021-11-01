@@ -9,8 +9,8 @@ export function tenantConnection({
   tenantId
 }: TenantConnectionParams): TenantConnectionResponse {
   try {
-    const dbName = `tenant_${tenantId}`
     const config = getConfig()
+    const dbName = `${config.databaseInitialName}_${tenantId}`
     const mongodb = createConnection({ uri: config.mongoURI })
   
     if (mongodb.readyState !== 0) {

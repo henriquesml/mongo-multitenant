@@ -16,6 +16,7 @@ describe('Method getConfig', () => {
 
   test('Should return a config object', async () => {
     const mockConfig = {
+      databaseInitialName: faker.name.title(),
       mongoURI: faker.internet.url(),
       models: [{ model: faker.name.firstName(), schema: new Schema({
         [faker.database.column()]: { type: String }
@@ -34,5 +35,15 @@ describe('Method getConfig', () => {
     })
 
     expect(() => getConfig()).toThrow(new Error('The mongoURI key must be filled in mongo-multitenant.js'))
+  })
+
+  test('Should return a throw when models is null', async () => {
+    jest.doMock(path.resolve(process.cwd(), 'mongo-multitenant.js'), () => {
+      return {
+        mongoURI: faker.internet.url()
+      }
+    })
+
+    expect(() => getConfig()).toThrow(new Error('The models key must be filled in mongo-multitenant.js'))
   })
 })
