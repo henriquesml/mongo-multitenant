@@ -1,25 +1,29 @@
 {
-  "name": "mongoose-multitenant",
+  "name": "mongo-multitenant",
   "version": "0.0.1",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/main.js",
   "scripts": {
+    "build": "tsc -p .",
     "test": "NODE_ENV=test jest",
     "test:watch": "yarn test --watch ",
     "test:staged": "yarn test --findRelatedTests --silent",
-    "test:ci": "yarn test --coverage --silent"
+    "test:ci": "yarn test --coverage --silent",
+    "clean": "rm -rf dist/",
+    "prepublishOnly": "npm run clean && npm run build",
+    "pub": "npm publish"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/henriquesml/mongoose-multitenant.git"
+    "url": "git+https://github.com/henriquesml/mongo-multitenant.git"
   },
   "keywords": [],
   "author": "Henrique Schmeller",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/henriquesml/mongoose-multitenant/issues"
+    "url": "https://github.com/henriquesml/mongo-multitenant/issues"
   },
-  "homepage": "https://github.com/henriquesml/mongoose-multitenant#readme",
+  "homepage": "https://github.com/henriquesml/mongo-multitenant#readme",
   "peerDependencies": {
     "mongoose": "^6.0.12"
   },
