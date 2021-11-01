@@ -2,3 +2,4 @@ node_modules
 coverage
 globalConfig.json
 mongo-multitenant.js
+dist
