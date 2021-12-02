@@ -18,7 +18,7 @@ describe('Method getConfig', () => {
     const mockConfig = {
       prefixDatabaseName: faker.name.title(),
       mongoURI: faker.internet.url(),
-      models: [{ model: faker.name.firstName(), schema: new Schema({
+      models: [{ name: faker.name.firstName(), schema: new Schema({
         [faker.database.column()]: { type: String }
       }) }]
     }
