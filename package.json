@@ -19,7 +19,7 @@
   },
   "keywords": [],
   "author": "Henrique Schmeller",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/henriquesml/mongo-multitenant/issues"
   },
