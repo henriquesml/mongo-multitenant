@@ -1,4 +1,21 @@
 # Mongo Multitenant
+A small and simple library for multitenant database with mongo in nodejs 
+
+## Install
+
+#### Yarn
+
+```bash
+yarn global add mongo-multitenant
+```
+
+#### Npm
+
+```bash
+npm i -g mongo-multitenant
+```
+
+## How to use?
 
 #### 1. Create your schemas
 
