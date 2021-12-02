@@ -16,7 +16,7 @@ export function tenantConnection({
     if (mongodb.readyState !== 0) {
       const db = mongodb.useDb(dbName, { useCache: true })
       console.info(`DB switched to ${dbName}`)
-      config.models.map(modelConfig => db.model(modelConfig.model, modelConfig.schema))
+      config.models.map(modelConfig => db.model(modelConfig.name, modelConfig.schema))
       return db
     }
     throw new Error('Mongoose connection error.')

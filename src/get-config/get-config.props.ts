@@ -4,7 +4,7 @@ export type GetConfigResponse = {
   mongoURI: string
   prefixDatabaseName: string
   models: Array<{
-    model: string
+    name: string
     schema: Schema
   }>
 }
