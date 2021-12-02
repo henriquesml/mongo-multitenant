@@ -10,8 +10,8 @@
     "test:staged": "yarn test --findRelatedTests --silent",
     "test:ci": "yarn test --coverage --silent",
     "clean": "rm -rf dist/",
-    "prepublishOnly": "npm run clean && npm run build",
-    "pub": "npm publish"
+    "prepublishOnly": "yarn clean && yarn build",
+    "pub": "yarn login && yarn publish"
   },
   "repository": {
     "type": "git",
