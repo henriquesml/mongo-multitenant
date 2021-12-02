@@ -1,5 +1,5 @@
 node_modules
 coverage
 globalConfig.json
-mongo-multitenant.js
+multitenant.config.js
 dist

@@ -10,13 +10,13 @@ export function tenantConnection({
 }: TenantConnectionParams): TenantConnectionResponse {
   try {
     const config = getConfig()
-    const dbName = `${config.databaseInitialName}_${tenantId}`
+    const dbName = `${config.prefixDatabaseName}_${tenantId}`
     const mongodb = createConnection({ uri: config.mongoURI })
   
     if (mongodb.readyState !== 0) {
       const db = mongodb.useDb(dbName, { useCache: true })
       console.info(`DB switched to ${dbName}`)
-      config.models.map(modelConfig => db.model(modelConfig.model, modelConfig.schema))
+      config.models.map(modelConfig => db.model(modelConfig.name, modelConfig.schema))
       return db
     }
     throw new Error('Mongoose connection error.')

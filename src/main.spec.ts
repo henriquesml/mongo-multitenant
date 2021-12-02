@@ -17,7 +17,7 @@ describe('mongoMultitenant', () => {
     getConfig.mockImplementation(() => {
       return {
         mongoURI: process.env.MONGODB_URI,
-        models: [{ model: modelName, schema }]
+        models: [{ name: modelName, schema }]
       }
     })
 

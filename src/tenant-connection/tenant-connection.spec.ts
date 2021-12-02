@@ -14,7 +14,7 @@ describe('Method tenantConnection', () => {
     getConfig.mockImplementation(() => {
       return {
         mongoURI: process.env.MONGODB_URI,
-        models: [{ model: faker.name.firstName(), schema }]
+        models: [{ name: faker.name.firstName(), schema }]
       }
     })
 
