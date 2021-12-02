@@ -2,7 +2,7 @@ import { Schema } from 'mongoose'
 
 export type GetConfigResponse = {
   mongoURI: string
-  databaseInitialName: string
+  prefixDatabaseName: string
   models: Array<{
     model: string
     schema: Schema
