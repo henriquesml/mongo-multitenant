@@ -40,7 +40,7 @@ export { UserSchema }
 
 import { UserSchema } from 'src/schemas'
 
-export ={
+export = {
   prefixDatabaseName: "tenant",
   mongoURI: "mongodb://username:password@mongodb.example.com:27017",
   models: [
