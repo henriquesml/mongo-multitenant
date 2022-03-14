@@ -1,5 +1,5 @@
-import { createConnection } from '../create-connection'
 import { getConfig } from '../get-config'
+import { connection } from '../create-connection'
 import {
   TenantConnectionParams,
   TenantConnectionResponse
@@ -8,19 +8,14 @@ import {
 export function tenantConnection({
   tenantId
 }: TenantConnectionParams): TenantConnectionResponse {
-  try {
-    const config = getConfig()
-    const dbName = `${config.prefixDatabaseName}_${tenantId}`
-    const mongodb = createConnection({ uri: config.mongoURI })
+  const config = getConfig()
+  const dbName = `${config.prefixDatabaseName}_${tenantId}`
   
-    if (mongodb.readyState !== 0) {
-      const db = mongodb.useDb(dbName, { useCache: true })
-      console.info(`DB switched to ${dbName}`)
-      config.models.map(modelConfig => db.model(modelConfig.name, modelConfig.schema))
-      return db
-    }
-    throw new Error('Mongoose connection error.')
-  } catch (error) {
-    throw error
+  if (connection.readyState !== 0) {
+    const db = connection.useDb(dbName, { useCache: true })
+    console.info(`DB switched to ${dbName}`)
+    config.models.map(modelConfig => db.model(modelConfig.name, modelConfig.schema)) // Exectar somente 1 vez, em um singleton
+    return db
   }
+  throw new Error('Mongoose connection error.')
 }

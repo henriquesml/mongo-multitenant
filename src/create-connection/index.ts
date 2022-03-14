@@ -1,1 +1,1 @@
-export * from './create-connection'
+export { default as connection } from './create-connection'

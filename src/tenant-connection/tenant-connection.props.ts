@@ -1,7 +1,7 @@
-import mongoose from 'mongoose'
+import { Connection } from 'mongoose'
 
 export type TenantConnectionParams = {
   tenantId: string
 }
 
-export type TenantConnectionResponse = mongoose.Connection
+export type TenantConnectionResponse = Connection

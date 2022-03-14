@@ -1,15 +1,19 @@
 import mongoose from 'mongoose'
-import { CreateConnectionProps, CreateConnectionResponse } from './create-connection.props'
+import { getConfig } from '../get-config'
+import { CreateConnectionResponse } from './create-connection.props'
 
-const mongoOptions = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  autoIndex: true,
-  connectTimeoutMS: 10000,
-  socketTimeoutMS: 30000
-}
-
-export const createConnection = ({ uri }: CreateConnectionProps): CreateConnectionResponse => {
-  const connection = mongoose.createConnection(uri, mongoOptions)
+const createConnection = (): CreateConnectionResponse => {
+  const config = getConfig()
+  
+  const connection = mongoose.createConnection(config.mongoURI, config.connectOptions)
+  connection.on('open', () => {
+    console.log(`Mongoose connection open to ${config.mongoURI}`)
+  })
+  connection.on('error', err => {
+    console.log(`Mongoose connection error: ${err} with connection info ${config.mongoURI}`)
+    process.exit(0)
+  })
   return connection
 }
+
+export default createConnection()

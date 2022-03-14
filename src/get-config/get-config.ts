@@ -2,7 +2,11 @@ import path from 'path'
 import { GetConfigResponse } from './get-config.props'
 
 const DEFAULT_CONFIG = {
-  prefixDatabaseName: 'tenant'
+  prefixDatabaseName: 'tenant',
+  connectOptions: {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }
 }
 
 export function getConfig(): GetConfigResponse {

@@ -1,7 +1,3 @@
-import mongoose from 'mongoose'
+import { Connection } from 'mongoose'
 
-export type CreateConnectionProps = {
-  uri: string
-}
-
-export type CreateConnectionResponse = mongoose.Connection
+export type CreateConnectionResponse = Connection
