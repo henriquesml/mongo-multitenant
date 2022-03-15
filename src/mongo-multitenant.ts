@@ -2,7 +2,7 @@ import { tenantConnection } from './tenant-connection'
 import {
   MongoMultitenantProps,
   MongoMultitenantResponse
-} from './main.props'
+} from './mongo-multitenant.props'
 
 export default function mongoMultitenant<T>({
   tenantId,

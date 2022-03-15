@@ -1,6 +1,6 @@
 import { Schema } from 'mongoose'
 import faker from 'faker'
-import mongoMultitenant from './main'
+import mongoMultitenant from './mongo-multitenant'
 
 jest.mock('./get-config')
 const getConfig = require('./get-config').getConfig
