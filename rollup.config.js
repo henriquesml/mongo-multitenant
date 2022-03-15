@@ -37,14 +37,15 @@ export default {
     },
     {
       file: path.resolve(PACKAGE_ROOT_PATH, 'dist/index.js'),
-      format: 'commonjs',
-      sourcemap: true
+      format: 'cjs',
+      sourcemap: true,
+      exports: 'auto'
     }
   ],
   plugins: [
     url(),
     json(),
-    resolve(),
+    resolve({ preferBuiltins: true, mainFields: ['browser'] }),
     babel({
       exclude: 'node_modules/**'
     }),
