@@ -1,1 +1,3 @@
-export * from './user'
+const { userSchema } = require('./user')
+
+module.exports = { userSchema }

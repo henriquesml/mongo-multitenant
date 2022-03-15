@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 
-const UserSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   name: String,
   email: String
 })
 
-export { UserSchema }
+module.exports = { userSchema }
