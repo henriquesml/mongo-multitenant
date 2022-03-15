@@ -13,7 +13,6 @@ export function tenantConnection({
   
   if (connection.readyState !== 0) {
     const db = connection.useDb(dbName, { useCache: true })
-    console.info(`DB switched to ${dbName}`)
     config.models.map(modelConfig => db.model(modelConfig.name, modelConfig.schema)) // Exectar somente 1 vez, em um singleton
     return db
   }
