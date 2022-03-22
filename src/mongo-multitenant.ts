@@ -25,7 +25,7 @@ export class MongoMultitenant {
     const dbName = `${this.settings.prefixDatabaseName}_${tenantId}`
     if (this.connection.readyState === 1) {
       const db = this.connection.useDb(dbName, { useCache: true })
-      this.settings.models.map(modelConfig => db.model(modelConfig.name, modelConfig.schema)) // Check if this line can be called once
+      this.settings.models.map(modelConfig => db.model(modelConfig.name, modelConfig.schema))
       return db.model<T>(modelName)
     }
     throw new Error('Mongoose connection error.')
