@@ -5,7 +5,7 @@ const DEFAULT_CONFIGS = {
   prefixDatabaseName: 'tenant'
 }
 
-export class MongoMultitenant {
+export default class MongoMultitenant {
   private settings: SettingsProps
   private connection: ConnectionProps
 

@@ -5,7 +5,7 @@ export class MongoConnection {
   private connection: Connection
   private static instance: MongoConnection
 
-  private constructor({ uri, options }: ConnectionProps) { 
+  private constructor({ uri, options }: ConnectionProps) {
     const connection = mongoose.createConnection(uri, options)
     connection.on('open', () => {
       console.log(`Mongoose connection open to ${uri}`)
