@@ -2,7 +2,7 @@
   "name": "mongo-multitenant",
   "version": "0.0.2",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/mongo-multitenant.js",
   "files": [
     "dist/**"
   ],
@@ -39,6 +39,7 @@
     "faker": "^5.5.3",
     "jest": "^27.3.1",
     "mongoose": "^6.0.12",
+    "rollup": "^2.70.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
@@ -47,8 +48,5 @@
     "rollup-plugin-url": "^3.0.1",
     "ts-jest": "^27.0.7",
     "typescript": "^4.4.4"
-  },
-  "dependencies": {
-    "rollup": "^2.70.1"
   }
 }
