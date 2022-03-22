@@ -1,15 +1,33 @@
-import { tenantConnection } from './tenant-connection'
-import {
-  MongoMultitenantProps,
-  MongoMultitenantResponse
-} from './mongo-multitenant.props'
+import { MongoConnection } from './mongo-connection'
+import { GetModelProps, SettingsProps, ConnectionProps } from './mongo-multitenant-props'
 
-export default function mongoMultitenant<T>({
-  tenantId,
-  modelName
-}: MongoMultitenantProps): MongoMultitenantResponse<T> {
-  const tenant = tenantConnection({ tenantId })
-  return tenant.model<T>(modelName)
+const DEFAULT_CONFIGS = {
+  prefixDatabaseName: 'tenant'
 }
 
-export { MongoMultitenantProps, MongoMultitenantResponse }
+export class MongoMultitenant {
+  private settings: SettingsProps
+  private connection: ConnectionProps
+
+  private constructor(settings: SettingsProps) { 
+    this.settings = settings
+    this.connection = MongoConnection.get({ uri: settings.mongoURI, options: settings.connectOptions })
+  }
+
+  public static settings(settings: SettingsProps): MongoMultitenant {
+    return new MongoMultitenant({ 
+      ...DEFAULT_CONFIGS,
+      ...settings
+    }) 
+  }
+
+  getModel<T>({ tenantId, modelName }: GetModelProps) {
+    const dbName = `${this.settings.prefixDatabaseName}_${tenantId}`
+    if (this.connection.readyState === 1) {
+      const db = this.connection.useDb(dbName, { useCache: true })
+      this.settings.models.map(modelConfig => db.model(modelConfig.name, modelConfig.schema)) // Check if this line can be called once
+      return db.model<T>(modelName)
+    }
+    throw new Error('Mongoose connection error.')
+  }
+}
