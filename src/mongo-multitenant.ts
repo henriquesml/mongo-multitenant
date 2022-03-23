@@ -1,5 +1,5 @@
 import { MongoConnection } from './mongo-connection'
-import { GetModelProps, SettingsProps, ConnectionProps } from './mongo-multitenant-props'
+import { SettingsProps, ConnectionProps } from './mongo-multitenant-props'
 
 const DEFAULT_CONFIGS = {
   prefixDatabaseName: 'tenant'

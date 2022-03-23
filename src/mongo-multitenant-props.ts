@@ -12,4 +12,3 @@ export type SettingsProps = {
 
 export type ConnectionProps = Connection
 
-export type GetModelProps = { tenantId: string, modelName: string }
