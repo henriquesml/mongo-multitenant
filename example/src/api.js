@@ -10,13 +10,13 @@ app.use(cors())
 app.use(express.json())
 
 routes.post('/users', async (req, res) => {
-  const UserModel = MongoMultitenant.getModel({ tenantId: '1', modelName: 'users' })
+  const UserModel = MongoMultitenant.tenant('1').model('users')
   const user = await UserModel.create({ name: 'Henrique Schmeller', email: 'henrique_schmeller@hotmail.com'})
   return res.json(user)
 })
 
 routes.get('/users', async (req, res) => {
-  const UserModel = MongoMultitenant.getModel({ tenantId: '1', modelName: 'users' })
+  const UserModel = MongoMultitenant.tenant('1').model('users')
   const users = await UserModel.find()
   return res.json(users)
 })
