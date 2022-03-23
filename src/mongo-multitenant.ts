@@ -26,9 +26,11 @@ export default class MongoMultitenant {
     if (this.connection.readyState !== 0) {
       const tenantDb = this.connection.useDb(dbName, { useCache: true })
       console.info(`Switched to database ${dbName}`)
+      const importedModelsTotal = Object.keys(tenantDb.models).length
+      const modelsToBeImportedTotal = this.settings.models.length
 
-      if (Object.keys(tenantDb.models).length === 0) {
-        console.info(`Registering ${this.settings.models.length} model(s) in the database`)
+      if (importedModelsTotal !== modelsToBeImportedTotal) {
+        console.info(`Registering ${modelsToBeImportedTotal} model(s) in the database`)
         this.settings.models.map(model => tenantDb.model(model.name, model.schema))
       }
       
