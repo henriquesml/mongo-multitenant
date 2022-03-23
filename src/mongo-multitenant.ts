@@ -4,7 +4,6 @@ import { SettingsProps, ConnectionProps } from './mongo-multitenant-props'
 const DEFAULT_CONFIGS = {
   prefixDatabaseName: 'tenant'
 }
-
 export default class MongoMultitenant {
   private settings: SettingsProps
   private connection: ConnectionProps
@@ -26,8 +25,13 @@ export default class MongoMultitenant {
     const dbName = `${this.settings.prefixDatabaseName}_${tenantId}`
     if (this.connection.readyState !== 0) {
       const tenantDb = this.connection.useDb(dbName, { useCache: true })
-      console.info(`DB switched to ${dbName}`)
-      this.settings.models.map(modelConfig => tenantDb.model(modelConfig.name, modelConfig.schema))
+      console.info(`Switched to database ${dbName}`)
+
+      if (Object.keys(tenantDb.models).length === 0) {
+        console.info(`Registering ${this.settings.models.length} model(s) in the database`)
+        this.settings.models.map(model => tenantDb.model(model.name, model.schema))
+      }
+      
       this.tenantDb = tenantDb
       return this
     }
