@@ -1,4 +1,4 @@
-import { ConnectOptions, Connection } from "mongoose"
+import { ConnectOptions } from "mongoose"
 
 export type ConnectionProps = {
   uri: string
