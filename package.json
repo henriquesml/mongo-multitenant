@@ -15,6 +15,7 @@
     "clean": "rm -rf dist/",
     "prepublishOnly": "yarn clean && yarn build",
     "pub": "yarn login && yarn publish",
+    "pub:beta": "yarn pub --tag beta",
     "pub:major": "yarn login && version major",
     "pub:minor": "yarn login && version minor",
     "pub:patch": "yarn login && version patch"
