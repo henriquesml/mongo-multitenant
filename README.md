@@ -1,4 +1,4 @@
-# Mongo Multitenant
+# Mongo Multitenant [BETA]
 A small and simple library for multitenant database with Mongo in Nodejs 
 
 ## 📦 Install
