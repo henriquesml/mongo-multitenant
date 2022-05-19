@@ -1,0 +1,14 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/api.js"
+  },
+  "dependencies": {
+    "mongoose": "6.0.12",
+    "cors": "^2.8.5",
+    "express": "^4.17.3"
+  }
+}

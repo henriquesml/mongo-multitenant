@@ -1,17 +1,24 @@
 {
   "name": "mongo-multitenant",
-  "version": "0.0.2",
+  "version": "1.0.0-beta",
   "description": "",
-  "main": "dist/main.js",
+  "main": "dist/mongo-multitenant.js",
+  "files": [
+    "dist/**"
+  ],
   "scripts": {
-    "build": "tsc -p .",
+    "build": "rollup -c",
     "test": "NODE_ENV=test jest",
     "test:watch": "yarn test --watch ",
     "test:staged": "yarn test --findRelatedTests --silent",
     "test:ci": "yarn test --coverage --silent",
     "clean": "rm -rf dist/",
     "prepublishOnly": "yarn clean && yarn build",
-    "pub": "yarn login && yarn publish"
+    "pub": "yarn login && yarn publish",
+    "pub:beta": "yarn pub --tag beta",
+    "pub:major": "yarn login && version major",
+    "pub:minor": "yarn login && version minor",
+    "pub:patch": "yarn login && version patch"
   },
   "repository": {
     "type": "git",
@@ -25,17 +32,25 @@
   },
   "homepage": "https://github.com/henriquesml/mongo-multitenant#readme",
   "peerDependencies": {
-    "mongoose": "^6.0.12"
+    "mongoose": "6.x"
   },
   "devDependencies": {
+    "@rollup/plugin-json": "^4.1.0",
     "@shelf/jest-mongodb": "^2.1.0",
-    "@types/faker": "^5.5.9",
+    "@types/faker": "^6.6.9",
     "@types/jest": "^27.0.2",
-    "@types/node": "^16.11.1",
-    "faker": "^5.5.3",
-    "jest": "^27.3.1",
-    "mongoose": "^6.0.12",
-    "ts-jest": "^27.0.7",
-    "typescript": "^4.4.4"
+    "@types/node": "^17.0.34",
+    "faker": "^6.6.6",
+    "jest": "^28.1.0",
+    "mongoose": "6.3.3",
+    "rollup": "^2.70.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "rollup-plugin-url": "^3.0.1",
+    "ts-jest": "^28.0.2",
+    "typescript": "^4.6.4"
   }
 }
