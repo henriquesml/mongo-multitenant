@@ -1,6 +1,6 @@
 {
   "name": "mongo-multitenant",
-  "version": "0.0.2",
+  "version": "1.0.0-beta",
   "description": "",
   "main": "dist/mongo-multitenant.js",
   "files": [
