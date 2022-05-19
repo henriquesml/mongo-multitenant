@@ -1,7 +1,7 @@
 const MongoMultitenant = require('../../../dist')
-const { UserSchema } = require('./schemas')
+const UserSchema = require('./schemas')
 
-module.exports = MongoMultitenant.settings({
+module.exports = new MongoMultitenant({
   mongoURI: 'mongodb://root:root@localhost:27017',
   prefixDatabaseName: 'tenant',
   models: [
