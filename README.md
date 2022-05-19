@@ -6,13 +6,13 @@ A small and simple library for multitenant database with Mongo in Nodejs
 #### Yarn
 
 ```bash
-yarn add mongo-multitenant
+yarn add mongo-multitenant@1.0.0-beta
 ```
 
 #### Npm
 
 ```bash
-npm i mongo-multitenant
+npm i mongo-multitenant@1.0.0-beta
 ```
 
 ## ℹ️ How to use?
